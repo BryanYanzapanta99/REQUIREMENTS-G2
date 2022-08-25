@@ -1,0 +1,14 @@
+.container-new{
+    background-color: aqua;
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 2rem;
+    margin-left: 2em;
+    margin-right: 2em;
+    
+}
+.title-log{
+    font-size: 1.2em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:rgb(68, 63, 63);
+}
