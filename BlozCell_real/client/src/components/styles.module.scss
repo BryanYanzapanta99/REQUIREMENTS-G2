@@ -18,7 +18,7 @@
   h2 {
     font-size: 30px;
     font-weight: bolder;
-    color: #6358dc;
+    color: #17aa9e;
   }
 
   form {
@@ -70,13 +70,13 @@
       font-weight: 700;
       font-size: 16px;
       color: white;
-      background-color: #6358dc;
+      background-color: #17aa9e;
       border-radius: 8px;
       transition-duration: 0.3s;
     }
 
     button:hover {
-      background-color: #4235d6;
+      background-color: #0e3633;
     }
 
     p {
@@ -97,7 +97,7 @@
 
 .toast {
   transition-duration: 0.3s;
-  background-color: #6358dc75;
+  background-color: #17aa9e;
   border-radius: 8px;
   width: 30%;
   text-align: center;
@@ -131,7 +131,7 @@
     margin-top: 15px;
 
     button {
-      background-color: #6358dc;
+      background-color:#17aa9e;
       border: none;
       cursor: pointer;
       color: white;
