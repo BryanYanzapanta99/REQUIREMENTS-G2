@@ -106,10 +106,6 @@ const Login = () => {
           <button type="submit">
             {loading ? "Cargando..." : "Iniciar Sesión"}
           </button>
-          <p>
-            Aun no tienes cuenta?{" "}
-            <b onClick={() => navigate("/")}>Registrate!</b>
-          </p>
         </form>
       </div>
 

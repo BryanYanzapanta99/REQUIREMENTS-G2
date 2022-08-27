@@ -28,8 +28,10 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     if (nombre !== "" && contraseña !== "" && correo !== "" && cedula!==""
     && firstNames!=="" && lastNames!=="" && rol!=="" && estado!=="") {
+      console.log("hOLLLAA");
       const Usuario = {
         nombre,
         correo,
@@ -49,8 +51,8 @@ const Register = () => {
           setInputs({ nombre: "", contraseña: "", correo: "",
         firstNames:"",lastNames:"", rol:"",estado:""});
           setTimeout(() => {
-            setMensaje("");
-            navigate("/login");
+            setMensaje("Guardado");
+            navigate("/users");
           }, 1500);
         })
         .catch((error) => {
@@ -232,7 +234,8 @@ const Register = () => {
                 placeholder="Rol..."
                 autoComplete="off"
               >
-                          <option value="admin">Admin</option>
+            <option value="" disabled >Seleccione una Opcion</option>
+            <option value="admin">Admin</option>
             <option value="seller">Vendedor</option>
             </select>
             </div>
@@ -276,10 +279,6 @@ const Register = () => {
           <button type="submit">
             {loading ? "Cargando..." : "Registrarme"}
           </button>
-          <p>
-            Ya tienes una cuenta?{" "}
-            <b onClick={() => navigate("/login")}>Inicia Sesión!</b>
-          </p>
         </form>
       </div>
       {mensaje && <div className={styles.toast}>{mensaje}</div>}

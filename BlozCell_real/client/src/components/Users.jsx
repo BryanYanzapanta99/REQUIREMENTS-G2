@@ -12,17 +12,13 @@ const Users = () => {
     const [userRole,setUserRole] = useState();
     const [seller,setSeller] = useState();
     const token = localStorage.getItem("token");
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
-        checkAuth(token);
-        console.log(actualUser)
 
-        if (actualUser.rol === "admin"){
-         
+        checkAuth(token);
+        if (actualUser.rol === "admin"){       
            getAllUsers();
-        }
-        else{
-            setSeller(actualUser)
         }
       }, [token,actualUser,users]);
 
@@ -34,12 +30,11 @@ const Users = () => {
         const checkAuth = async() =>{
             let response = await checkToken(token);
              setActualUser(response.data);
-            console.log(actualUser);
         }
 
     return (
-        <div>
-        <table striped bordered hover variant="dark" >
+        <div className={styles.tableContainer} >
+        <table>
         <thead>
             <tr className='table-head'>
               <th scope="col"> ID</th>
@@ -50,6 +45,8 @@ const Users = () => {
                 <th scope="col" >cedula</th>
                 <th scope="col">rol</th>
                 <th scope="col" >Estado </th>
+                <th scope="col" > Editar</th>
+                <th scope="col" >Eliminar </th>
             </tr>
         </thead>
         <tbody>
@@ -76,7 +73,11 @@ const Users = () => {
            
         </tbody>
     </table>
-    <div>{seller}</div>
+     <div className={styles.welcome}>
+            <div className={styles.buttons}>
+            <button onClick={() => navigate("/register")}>Register New User</button>
+            </div>
+     </div>
     </div>
     );
 };
