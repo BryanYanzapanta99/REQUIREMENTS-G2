@@ -26,3 +26,12 @@ export const checkToken = async(token) => {
         console.log(error)
     }
 }
+
+export const deleteUserRest = async(id) => {
+    try {
+        return axios.delete(`http://localhost:4000/users/${id}`)
+
+    } catch (error) {
+        console.log(error)
+    }
+}

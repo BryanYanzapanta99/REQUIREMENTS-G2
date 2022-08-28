@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkToken, getUsers } from "../services/api";
+import { checkToken, getUsers,deleteUserRest } from "../services/api";
 
 import styles from "./styles.module.scss";
 
@@ -13,7 +13,7 @@ const Users = () => {
     const [seller,setSeller] = useState();
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
-    
+
     useEffect(() => {
 
         checkAuth(token);
@@ -32,6 +32,14 @@ const Users = () => {
              setActualUser(response.data);
         }
 
+        const changeUserState = () =>{
+
+        }
+        const deleteUser = async (id) => {
+            console.log(id);
+            await deleteUserRest(id);
+            getAllUsers();
+        }
     return (
         <div className={styles.tableContainer} >
         <table>
@@ -51,7 +59,15 @@ const Users = () => {
         </thead>
         <tbody>
           {
+
                 users.map(user=>{
+                  if(user.estado === 1){
+                    user.estadoEscrito="Activo"
+                  }
+                  else{
+                    user.estadoEscrito="Inactivo"
+                  }
+                  
                   return(
                     <tr key ={user._id}> 
                       <td>{user._id}</td> 
@@ -61,9 +77,10 @@ const Users = () => {
                       <td>{user.correo}</td>
                       <td> {user.cedula} </td>
                       <td>{user.rol}</td>
-                      <td>{user.estado}</td>
-                      <td><button class="editbtn">edit</button></td>
-                      <td><button class="deletetn">delete</button></td>
+                      <td>{user.estadoEscrito}</td>
+                      <td><button onClick={e => navigate("/user/editUser")}> Editar</button> </td>
+                      <td><button onClick={() => changeUserState(user._id)}> </button> Cambiar a Inactivo</td>
+                      <td><button onClick={() => deleteUser(user._id)}>Borrar</button> </td>
 
                       </tr>
                   )

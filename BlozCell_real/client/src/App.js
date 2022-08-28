@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Users from "./components/Users"
 import Home from "./components/Home";
+import EditUser from "./components/EditUser";
 
 import styles from './App.module.scss'
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/users" element={<Users />}   />
+          <Route path="/user/editUser/:id" element={<EditUser></EditUser>} />
         </Routes>
       </div>
     </BrowserRouter>

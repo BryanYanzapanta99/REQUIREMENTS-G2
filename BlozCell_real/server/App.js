@@ -14,6 +14,7 @@ app.get("/user", verifyToken, controllers.getUserById);
 app.post("/register", controllers.register);
 app.post("/login", controllers.login);
 app.get("/users", verifyToken, controllers.getUsers);
+app.delete("/users/:id", controllers.deleteUser);
 
 const PORT = 4000;
 
