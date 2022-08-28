@@ -17,7 +17,7 @@ const Welcome = () => {
   const checkAuth = async() =>{
     let response = await checkToken(token);
     setUser(response.data);
-    console.log(user);
+    console.log(response.data);
   }
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const Welcome = () => {
         else if(user.rol==="seller"){
           setRole("seller");
         }
+        console.log(user._id);
   }, [token,user,role]);
 
   const logout = async e => {
@@ -63,7 +64,7 @@ const Welcome = () => {
       </h2>
       <div className={styles.buttons}>
         <button onClick={e => logout(e)}>Logout </button>
-        <button onClick={() =>navigate("/sellerEdit")}> Editar Usuario Propio</button>
+        <button onClick={() =>navigate(`/sellerEdit`)}>Cambiar Contraseña</button>
       </div>
     </div>
   );

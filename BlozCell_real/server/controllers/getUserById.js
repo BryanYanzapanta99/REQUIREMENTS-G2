@@ -10,7 +10,7 @@ const getUserById = async (req, res) => {
           mensaje: "No se encontro ningun usuario con esa ID",
         });
       } else {
-        const { _id, contraseña, __v, ...resto } = usuario._doc;
+        const { contraseña, __v, ...resto } = usuario._doc;
         res.json(resto);
       }
     });

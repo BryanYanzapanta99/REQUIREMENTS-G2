@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Users from "./components/Users"
 import Home from "./components/Home";
 import EditUser from "./components/EditUser";
+import SellerEdit from "./components/sellerEdit";
 
 import styles from './App.module.scss'
 
@@ -19,7 +20,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/users" element={<Users />}   />
-          <Route path="/user/editUser/:id" element={<EditUser></EditUser>} />
+          <Route path="/user/editUser/:id" element={<EditUser />} />
+          <Route path="/sellerEdit" element={<SellerEdit />} />
         </Routes>
       </div>
     </BrowserRouter>

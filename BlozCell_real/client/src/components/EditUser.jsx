@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { editUserRest } from "../services/api";
 
 import styles from "./styles.module.scss";
 
-const EditUser = () => {
+const EditUser = (props) => {
     const [inputs, setInputs] = useState({
         correo: "",
         nombre: "",
@@ -17,7 +18,9 @@ const EditUser = () => {
       });
       const [mensaje, setMensaje] = useState();
       const [loading, setLoading] = useState(false);
-    
+      const url = window.location.pathname;
+      const lastSegment = url.split("/").pop();
+
       const navigate = useNavigate();
     
       const { nombre, contraseña, correo,firstNames,lastNames,rol,estado ,cedula} = inputs;
@@ -28,10 +31,8 @@ const EditUser = () => {
     
       const onSubmit = async (e) => {
         e.preventDefault();
-    
-        if (nombre !== "" && contraseña !== "" && correo !== "" && cedula!==""
-        && firstNames!=="" && lastNames!=="" && rol!=="" && estado!=="") {
-          console.log("hOLLLAA");
+        if (nombre !== "" || contraseña !== "" || correo !== "" || cedula!==""
+        || firstNames!=="" || lastNames!=="" || rol!=="" || estado!=="") {
           const Usuario = {
             nombre,
             correo,
@@ -43,35 +44,20 @@ const EditUser = () => {
             cedula
           };
           setLoading(true);
-          await axios
-            .post("http://localhost:4000/register", Usuario)
-            .then((res) => {
-              const { data } = res;
-              setMensaje(data.mensaje);
-              setInputs({ nombre: "", contraseña: "", correo: "",
-            firstNames:"",lastNames:"", rol:"",estado:""});
-              setTimeout(() => {
-                setMensaje("Guardado");
-                navigate("/users");
-              }, 1500);
-            })
-            .catch((error) => {
-              console.error(error);
-              setMensaje("Hubo un error");
-              setTimeout(() => {
-                setMensaje("");
-              }, 1500);
-            });
-    
+          await editUser(lastSegment,Usuario);
+          navigate("/users");
           setLoading(false);
         }
       };
-    
+      const editUser = async(lastSegment,Usuario) => {
+            await editUserRest(lastSegment,Usuario);
+
+      }
       return (
         <>
           <div className={styles.formContainer}>
-            <h3>Bienvenido a la pagina</h3>
-            <h2>De Registro!</h2>
+            <h3>Actualice los Datos del usuario con id</h3>
+            <h2></h2>
             <form onSubmit={(e) => onSubmit(e)}>
               <div className={styles.inputContainer}>
                 <div className={styles.left}>
@@ -107,7 +93,7 @@ const EditUser = () => {
                     name="correo"
                     id="correo"
                     type="email"
-                    placeholder="Correo..."
+                    placeholder="Nueva Contraseña..."
                     autoComplete="off"
                   />
                 </div>
@@ -277,7 +263,7 @@ const EditUser = () => {
               </div>
     
               <button type="submit">
-                {loading ? "Cargando..." : "Registrarme"}
+                {loading ? "Cargando..." : "Actualizar"}
               </button>
             </form>
           </div>

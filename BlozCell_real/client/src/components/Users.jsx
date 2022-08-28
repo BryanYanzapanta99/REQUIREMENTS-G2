@@ -37,7 +37,6 @@ const Users = () => {
 
         }
         const deleteUser = async (id) => {
-            console.log(id);
             await deleteUserRest(id);
             getAllUsers();
         }
@@ -80,7 +79,7 @@ const Users = () => {
                       <td> {user.cedula} </td>
                       <td>{user.rol}</td>
                       <td>{user.estadoEscrito}</td>
-                      <td><button onClick={e => navigate("/user/editUser")}> Editar</button> </td>
+                      <td><button onClick={e => navigate(`/user/editUser/${user._id}`)}> Editar</button> </td>
                       <td><button onClick={() => changeUserState(user._id)}> </button> Cambiar a Inactivo</td>
                       <td><button onClick={() => deleteUser(user._id)}>Borrar</button> </td>
 
