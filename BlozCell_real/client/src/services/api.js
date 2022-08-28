@@ -47,7 +47,7 @@ export const editUserRest = async(id,user) => {
 
 export const editPassword = async(id,password) => {
     try {
-        return await axios.put(`http://localhost:4000/users/password/${id}`,password)
+        return await axios.put(`http://localhost:4000/users/password/${id}`,{password : password})
 
     } catch (error) {
         console.log(error)
