@@ -108,14 +108,14 @@
 }
 
 .welcome {
-  padding: 35px 75px;
+  padding: 120px 120px;
   background-color: white;
   border-radius: 8px;
   text-align: center;
 
   h2 {
-    font-weight: bold;
-    color: #6358dc;
+    font-weight: 20px;
+    color: #070707;
     font-size: 25px;
   }
 
@@ -135,7 +135,7 @@
       border: none;
       cursor: pointer;
       color: white;
-      padding: 5px 20px;
+      padding: 10px 50px;
       border-radius: 3px;
       transition-duration: 0.3s;
     }
@@ -146,19 +146,34 @@
   }
 }
 
+.face{
+  background-color: #7fe6dd;
+  padding: 35px 75px;
+  h2{
+   font-size: 5rem;
+  }
+ 
+
+}
+.images{
+width:510px;
+height: 300px;
+  }
+
 .tableContainer{
   padding: 35px 75px;
   background-color: white;
   border-radius: 8px;
   text-align: center;
-
+  border:1px solid;
   tr{
     margin:0.25em;
-    color:#6358dc;
-    background-color: #2f2f2f;
+    color:#020008;
+    background-color: #ffffff;
+    border:2px solid;
   }
   th{
-    color:#6358dc;
-    background-color: #2f2f2f;
+    color:#020008;
+    background-color: #006cd1;
   }
 }

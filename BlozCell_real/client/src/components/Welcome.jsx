@@ -51,7 +51,7 @@ const Welcome = () => {
         </h2>
         <div className={styles.buttons}>
           <button onClick={e => logout(e)}>Logout </button>
-          <button onClick={e => navigate("/users")}> Crud Usuarios</button>
+          <button onClick={e => navigate("/users")}> Gestionar Usuarios</button>
         </div>
       </div>
     );
