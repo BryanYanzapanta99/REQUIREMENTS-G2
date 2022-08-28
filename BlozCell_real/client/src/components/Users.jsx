@@ -43,16 +43,16 @@ const Users = () => {
         }
     return (
         <div className={styles.tableContainer} >
-        <table>
+        <table className={styles.styledtable}>
         <thead>
             <tr className='table-head'>
-              <th scope="col"> ID</th>
+              <th scope="col"> Código</th>
                 <th scope="col">Username</th>
-                <th scope="col">Names</th>
-                <th scope="col" >Last Names</th>
-                <th scope="col" >email</th>
-                <th scope="col" >cedula</th>
-                <th scope="col">rol</th>
+                <th scope="col">Nombres</th>
+                <th scope="col" >Apellidos</th>
+                <th scope="col" >Email</th>
+                <th scope="col" >Cédula</th>
+                <th scope="col">Rol</th>
                 <th scope="col" >Estado </th>
                 <th scope="col" > Editar</th>
                 <th scope="col" >Cambiar Estado</th>
@@ -82,7 +82,7 @@ const Users = () => {
                       <td>{user.estadoEscrito}</td>
                       <td><button onClick={e => navigate("/user/editUser")}> Editar</button> </td>
                       <td><button onClick={() => changeUserState(user._id)}> </button> Cambiar a Inactivo</td>
-                      <td><button onClick={() => deleteUser(user._id)}>Borrar</button> </td>
+                      <td><button  clasName={styles.deletebutton} onClick={() => deleteUser(user._id)}>Borrar</button> </td>
 
                       </tr>
                   )
