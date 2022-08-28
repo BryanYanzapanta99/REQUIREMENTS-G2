@@ -13,8 +13,8 @@ app.use(express.json());
 app.get("/user", verifyToken, controllers.getUserById);
 app.post("/register", controllers.register);
 app.post("/login", controllers.login);
-app.get("/users", verifyToken, controllers.getUsers);
-app.delete("/users/:id", controllers.deleteUser);
+app.get("/users", controllers.getUsers);
+app.delete("/users/:idToDelete", controllers.deleteUser);
 
 const PORT = 4000;
 

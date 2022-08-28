@@ -29,7 +29,7 @@ export const checkToken = async(token) => {
 
 export const deleteUserRest = async(id) => {
     try {
-        return axios.delete(`http://localhost:4000/users/${id}`)
+        return await axios.delete(`http://localhost:4000/users/${id}`)
 
     } catch (error) {
         console.log(error)

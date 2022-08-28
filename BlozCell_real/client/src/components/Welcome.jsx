@@ -21,7 +21,6 @@ const Welcome = () => {
   }
 
   useEffect(() => {
-    if(token){
       checkAuth(token);
         if (user.rol === "admin"){    
           setRole("admin");
@@ -29,7 +28,6 @@ const Welcome = () => {
         else if(user.rol==="seller"){
           setRole("seller");
         }
-    }
   }, [token,user,role]);
 
   const logout = async e => {

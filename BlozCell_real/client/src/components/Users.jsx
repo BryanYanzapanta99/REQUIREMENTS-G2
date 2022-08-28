@@ -15,12 +15,13 @@ const Users = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-
-        checkAuth(token);
-        if (actualUser.rol === "admin"){       
-           getAllUsers();
+        if(token){
+          checkAuth(token);
+          if (actualUser.rol === "admin"){       
+             getAllUsers();
+          }
         }
-      }, [token,actualUser,users]);
+      }, [token,actualUser]);
 
         const getAllUsers = async ()=>{
             let response= await getUsers(token);
@@ -54,6 +55,7 @@ const Users = () => {
                 <th scope="col">rol</th>
                 <th scope="col" >Estado </th>
                 <th scope="col" > Editar</th>
+                <th scope="col" >Cambiar Estado</th>
                 <th scope="col" >Eliminar </th>
             </tr>
         </thead>
