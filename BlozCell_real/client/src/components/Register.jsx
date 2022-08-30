@@ -28,10 +28,13 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    if(estado === "0" || estado ==="1"){
+      setTimeout(() => {
+        setMensaje("Estado es 1 o 0");
+      }, 1001);
+    }
     if (nombre !== "" && contraseña !== "" && correo !== "" && cedula !== ""
       && firstNames !== "" && lastNames !== "" && rol !== "" && estado !== "") {
-      console.log("hOLLLAA");
       const Usuario = {
         nombre,
         correo,
@@ -66,6 +69,15 @@ const Register = () => {
         });
 
       setLoading(false);
+    }
+    else{
+      setTimeout(() => {
+        setMensaje("Campos Vacios");
+      }, 1000);
+
+      setTimeout(() => {
+        setMensaje("");
+      }, 4000);
     }
   };
 
@@ -265,7 +277,7 @@ const Register = () => {
           </div>
 
           <button type="submit">
-            {loading ? "Cargando..." : "Registrarme"}
+            {loading ? "Cargando..." : "Registrar nuevo usuario"}
           </button>
         </form>
       </div>

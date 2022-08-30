@@ -4,6 +4,7 @@
   min-width: 300px;
   width: 60%;
   max-width: 500px;
+  margin: 1em 0;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -191,11 +192,12 @@ height: 300px;
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 .styledtable thead tr {
   background-color: #009879;
   color: #ffffff;
-  text-align: left;
+  text-align: center;
 }
 .styledtable th,
 .styledtable td {

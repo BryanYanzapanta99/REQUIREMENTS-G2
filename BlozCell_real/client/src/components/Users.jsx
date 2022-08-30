@@ -81,7 +81,7 @@ const Users = () => {
                       <td>{user.estadoEscrito}</td>
                       <td><button onClick={e => navigate(`/user/editUser/${user._id}`)}> Editar</button> </td>
                       <td><button onClick={() => changeUserState(user._id)}> </button> Cambiar a Inactivo</td>
-                      <td><button  clasName={styles.deletebutton} onClick={() => deleteUser(user._id)}>Borrar</button> </td>
+                      <td><button  className={styles.deletebutton} onClick={() => deleteUser(user._id)}>Borrar</button> </td>
 
                       </tr>
                   )
@@ -93,7 +93,8 @@ const Users = () => {
     </table>
      <div className={styles.welcome}>
             <div className={styles.buttons}>
-            <button onClick={() => navigate("/register")}>Register New User</button>
+            <button onClick={() => navigate("/register")}>Registrar nuevo usuario</button>
+            <button onClick={() => navigate("/welcome")}> Regresar </button>
             </div>
      </div>
     </div>
