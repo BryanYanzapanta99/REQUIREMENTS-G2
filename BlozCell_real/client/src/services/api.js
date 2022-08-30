@@ -53,3 +53,13 @@ export const editPassword = async(id,password) => {
         console.log(error)
     }
 }
+
+export const changeUserStateRest = async(id,state) => {
+    try {
+        console.log(state);
+        return await axios.put(`http://localhost:4000/users/state/${id}`,{estado : state})
+
+    } catch (error) {
+        console.log(error)
+    }
+}

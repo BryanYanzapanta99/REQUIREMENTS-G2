@@ -5,6 +5,7 @@ const getUsers = require("./getUsers");
 const deleteUser = require("./deleteUser");
 const editUser = require("./editUser");
 const updatePassword = require("./updatePassword")
+const changeState = require("./changeState")
 
 module.exports = {
   register,
@@ -14,4 +15,5 @@ module.exports = {
   deleteUser,
   editUser,
   updatePassword,
+  changeState,
 };

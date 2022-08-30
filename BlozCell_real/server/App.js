@@ -16,7 +16,8 @@ app.post("/login", controllers.login);
 app.get("/users", controllers.getUsers);
 app.delete("/users/:idToDelete", controllers.deleteUser);
 app.put("/users/:id",controllers.editUser)
-app.put("/users/password/:id",controllers.updatePassword)
+app.put("/users/password/:id",controllers.updatePassword);
+app.put("/users/state/:id",controllers.changeState);
 
 const PORT = 4000;
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkToken, getUsers,deleteUserRest } from "../services/api";
+import { checkToken, getUsers,deleteUserRest,changeUserStateRest} from "../services/api";
 
 import styles from "./styles.module.scss";
 
@@ -33,8 +33,16 @@ const Users = () => {
              setActualUser(response.data);
         }
 
-        const changeUserState = () =>{
+        const changeUserState = async (id,state) =>{
+          if (state===0){
+            state=1;
 
+          }
+          else if(state===1){
+            state=0;
+          };
+            await changeUserStateRest(id,state);
+            getAllUsers();
         }
         const deleteUser = async (id) => {
             await deleteUserRest(id);
@@ -68,7 +76,6 @@ const Users = () => {
                   else{
                     user.estadoEscrito="Inactivo"
                   }
-                  
                   return(
                     <tr key ={user._id}> 
                       <td>{user._id}</td> 
@@ -79,8 +86,8 @@ const Users = () => {
                       <td> {user.cedula} </td>
                       <td>{user.rol}</td>
                       <td>{user.estadoEscrito}</td>
-                      <td><button onClick={e => navigate(`/user/editUser/${user._id}`)}> Editar</button> </td>
-                      <td><button onClick={() => changeUserState(user._id)}> </button> Cambiar a Inactivo</td>
+                      <td><button  className={styles.editbutton} onClick={e => navigate(`/user/editUser/${user._id}`)}> Editar</button> </td>
+                      <td><button  className={styles.changebutton} onClick={() => changeUserState(user._id,user.estado)}> Cambiar Estado </button>  </td>
                       <td><button  className={styles.deletebutton} onClick={() => deleteUser(user._id)}>Borrar</button> </td>
 
                       </tr>

@@ -93,7 +93,7 @@ const EditUser = (props) => {
                     name="correo"
                     id="correo"
                     type="email"
-                    placeholder="Nueva Contraseña..."
+                    placeholder="correo..."
                     autoComplete="off"
                   />
                 </div>
