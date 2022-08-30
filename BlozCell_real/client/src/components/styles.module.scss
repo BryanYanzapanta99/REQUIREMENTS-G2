@@ -104,14 +104,16 @@
 
 .toast {
   transition-duration: 0.3s;
-  background-color: #17aa9e;
-  border-radius: 8px;
+  background-color: rgb(237, 143, 152);
+  color:rgb(134, 0, 0);
+  border-radius: 8px ;
   width: 30%;
   text-align: center;
   position: fixed;
   bottom: 0;
   margin-bottom: 15px;
   padding: 10px;
+  border:solid;
 }
 
 .welcome {

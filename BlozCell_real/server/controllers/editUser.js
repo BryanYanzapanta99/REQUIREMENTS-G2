@@ -1,4 +1,5 @@
 const Usuario = require("../model/usuario");
+const bcrypt = require("bcrypt");
 
 const editUser = async (req,res) => {
     try{
@@ -18,8 +19,9 @@ const editUser = async (req,res) => {
         if(req.body.nombre){
             user.nombre = req.body.nombre
         }
-        if(req.body.contraseña ){
-            user.contraseña = req.body.contraseña
+        if(req.body.contraseña){
+            const constraseñaHasehada = await bcrypt.hash(req.body.contraseña, 10); 
+            user.contraseña = constraseñaHasehada; 
         }
         if(req.body.estado){
             user.estado = req.body.estado

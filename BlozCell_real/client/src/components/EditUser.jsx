@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useState } from "react";
+
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { editUserRest } from "../services/api";
+import { editUserRest,getUserDataRest} from "../services/api";
 
 import styles from "./styles.module.scss";
 
@@ -25,6 +25,15 @@ const EditUser = (props) => {
 
   const { nombre, contraseña, correo, firstNames, lastNames, rol, estado, cedula } = inputs;
 
+    useEffect(()=>{
+     loadInformation();
+  },[]);
+
+  const loadInformation = async() => {
+    const response = await getUserDataRest(lastSegment);
+    console.log(response.data);
+    setInputs(response.data);
+  }
   const HandleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
@@ -64,7 +73,7 @@ const EditUser = (props) => {
               <label htmlFor="nombre">Nombre</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={nombre}
+                value={inputs.nombre}
                 name="nombre"
                 id="nombre"
                 type="text"
@@ -89,7 +98,7 @@ const EditUser = (props) => {
               <label htmlFor="correo">Correo</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={correo}
+                value={inputs.correo}
                 name="correo"
                 id="correo"
                 type="email"
@@ -114,7 +123,7 @@ const EditUser = (props) => {
               <label htmlFor="contraseña">Contraseña</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={contraseña}
+                value={inputs.contraseña}
                 name="contraseña"
                 id="contraseña"
                 type="password"
@@ -139,7 +148,7 @@ const EditUser = (props) => {
               <label htmlFor="cedula">Cedula</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={cedula}
+                value={inputs.cedula}
                 name="cedula"
                 id="cedula"
                 type="text"
@@ -163,7 +172,7 @@ const EditUser = (props) => {
               <label htmlFor="nombres">Nombres Completos</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={firstNames}
+                value={inputs.firstNames}
                 name="firstNames"
                 id="firstNames"
                 type="text"
@@ -188,7 +197,7 @@ const EditUser = (props) => {
               <label htmlFor="lastNames">Apellidos Completos</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={lastNames}
+                value={inputs.lastNames}
                 name="lastNames"
                 id="lastNames"
                 type="text"
@@ -214,7 +223,7 @@ const EditUser = (props) => {
               <label htmlFor="rol">Rol</label>
               <select
                 onChange={(e) => HandleChange(e)}
-                value={rol}
+                value={inputs.rol}
                 name="rol"
                 id="rol"
                 type="text"
@@ -244,7 +253,7 @@ const EditUser = (props) => {
               <label htmlFor="estado">Estado</label>
               <input
                 onChange={(e) => HandleChange(e)}
-                value={estado}
+                value={inputs.estado}
                 name="estado"
                 id="estado"
                 type="number"
@@ -261,6 +270,9 @@ const EditUser = (props) => {
 
           <button type="submit">
             {loading ? "Cargando..." : "Actualizar"}
+          </button>
+          <button onClick={e => navigate(`/users`)}>
+            {loading ? "Cargando..." : "Regresar"}
           </button>
         </form>
       </div>

@@ -56,8 +56,17 @@ export const editPassword = async(id,password) => {
 
 export const changeUserStateRest = async(id,state) => {
     try {
-        console.log(state);
         return await axios.put(`http://localhost:4000/users/state/${id}`,{estado : state})
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getUserDataRest = async(id) => {
+    try {
+        const response =  await axios.get(`http://localhost:4000/edit/${id}`)
+        return response;
 
     } catch (error) {
         console.log(error)

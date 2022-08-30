@@ -6,7 +6,8 @@ const deleteUser = require("./deleteUser");
 const editUser = require("./editUser");
 const updatePassword = require("./updatePassword")
 const changeState = require("./changeState")
-
+const getUserData = require("./getUserData")
+ 
 module.exports = {
   register,
   login,
@@ -16,4 +17,5 @@ module.exports = {
   editUser,
   updatePassword,
   changeState,
+  getUserData,
 };

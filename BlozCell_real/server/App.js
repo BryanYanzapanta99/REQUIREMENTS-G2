@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/user", verifyToken, controllers.getUserById);
+app.get("/edit/:id",controllers.getUserData);
 app.post("/register", controllers.register);
 app.post("/login", controllers.login);
 app.get("/users", controllers.getUsers);
