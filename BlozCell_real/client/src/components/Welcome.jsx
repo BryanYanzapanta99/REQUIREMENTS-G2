@@ -51,6 +51,7 @@ const Welcome = () => {
         <div className={styles.buttons}>
           <button onClick={e => logout(e)}>Logout </button>
           <button onClick={e => navigate("/users")}> Gestionar Usuarios</button>
+          <button> Generar Privilegios</button>
         </div>
       </div>
     );
