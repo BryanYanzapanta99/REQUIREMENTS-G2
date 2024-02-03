@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MONGO_URL = "mongodb+srv://admin:admin@cluster0.uxgwiwo.mongodb.net/BlozCell?retryWrites=true&w=majority";
+const MONGO_URL = "mongodb+srv://Bastian:sebas123@cluster0.cnusl.mongodb.net/BlozCell?retryWrites=true&w=majority";
 
 const db = async () => {
   await mongoose
